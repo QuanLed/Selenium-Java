@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class MoveToFacebookTest {
+public class dataProviderTest {
 	private static WebDriver driver;
 	@DataProvider(name="ExpectedTitle")
 	public static String[] credentials(){
@@ -16,7 +16,7 @@ public class MoveToFacebookTest {
 	}
 	
 	@Test(dataProvider="ExpectedTitle")
-	public void moveToFacebook(String searchData){
+	public void searchText(String searchData){
 		System.setProperty("webdriver.chrome.driver", "E:\\AutoTestLotteria\\browser\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
