@@ -15,4 +15,10 @@ public class TestCase {
 		this();
 		q.driver = driver;
 	}
+	public void openBrowser(){
+		q.initBrowser();
+	}
+	public void closeBrowser(){
+		q.driver.close();
+	}
 }
