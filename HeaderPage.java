@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
 
 public class HeaderPage extends Page {
-
+	
 	public HeaderPage(WebDriver driver){
 		super(driver);
 		this.repoFile = "E:\\AutoTestLotteria\\repository\\Loteria_Locator.xls";

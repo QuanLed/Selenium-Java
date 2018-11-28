@@ -1,8 +1,12 @@
 package pages;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import core.TestBase;
 
 public class SearchResultsPage extends Page {
 	public SearchResultsPage(WebDriver driver){
@@ -20,5 +24,24 @@ public class SearchResultsPage extends Page {
 		textMsg.add(msg2);
 		textMsg.add(msg3);
 		return textMsg;
+	}
+	public List<WebElement> getProductName(){
+		List<WebElement> resultList = q.driver.findElements(getLocation("TXT_PRODUCTLIST"));
+		return resultList;
+	}
+	public String moveToFacebook(){
+		String thucDonTitle = q.driver.getTitle();
+		TestBase scrollToEnd = new TestBase();
+		scrollToEnd.scrollEndPage();
+		FooterPage footer = new FooterPage(null);
+		footer.clickFaceBook();
+		for(String winHandle : q.driver.getWindowHandles()){
+			if(winHandle != thucDonTitle){
+				String current = winHandle;
+				q.driver.switchTo().window(current);
+			}
+		}
+		String fanPageTitle = q.driver.getTitle();
+		return fanPageTitle;
 	}
 }
